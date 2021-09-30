@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+// import ClassCounter from './components/Class/ClassCounter';
+// import FuncCounter from './components/Funtional/FuncCounter';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+// Components
+import Header from './components/Header';
+import Main from './components/Main';
+import Footer from './components/Footer';
+// Screens
+import HomeScreen from './screens/HomeScreen';
+import AboutScreen from './screens/AboutScreen';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <ClassCounter /> */}
+      {/* <FuncCounter /> */}
+
+      <Router>
+        <Header />
+        <Main>
+          <Switch>
+            <Route exact path='/' component={HomeScreen} />
+            <Route path='/about' component={AboutScreen} />
+          </Switch>
+        </Main>
+        <Footer />
+      </Router>
+    </>
   );
 }
 
